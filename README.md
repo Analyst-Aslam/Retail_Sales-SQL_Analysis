@@ -59,23 +59,23 @@ SELECT * FROM Retail_Sales
 WHERE 
 	transactions_id IS NULL
 	OR
-	sale_date	IS NULL
+	sale_date IS NULL
 	OR
-	sale_time	IS NULL
+	sale_time IS NULL
 	OR
-	customer_id	IS NULL
+	customer_id IS NULL
 	OR
-	gender	IS NULL
+	gender IS NULL
 	OR
-	age	IS NULL
+	age IS NULL
 	OR
-	category	IS NULL
+	category IS NULL
 	OR
-	quantity	IS NULL
+	quantity IS NULL
 	OR
-	price_per_unit	IS NULL
+	price_per_unit IS NULL
 	OR
-	cogs	IS NULL
+	cogs IS NULL
 	OR
 	total_sale IS NULL
 ;
@@ -84,23 +84,23 @@ DELETE FROM Retail_Sales
 WHERE 
 	transactions_id IS NULL
 	OR
-	sale_date	IS NULL
+	sale_date IS NULL
 	OR
-	sale_time	IS NULL
+	sale_time IS NULL
 	OR
-	customer_id	IS NULL
+	customer_id IS NULL
 	OR
-	gender	IS NULL
+	gender IS NULL
 	OR
-	age	IS NULL
+	age IS NULL
 	OR
-	category	IS NULL
+	category IS NULL
 	OR
-	quantity	IS NULL
+	quantity IS NULL
 	OR
-	price_per_unit	IS NULL
+	price_per_unit IS NULL
 	OR
-	cogs	IS NULL
+	cogs IS NULL
 	OR
 	total_sale IS NULL
 ;
@@ -153,13 +153,13 @@ SELECT category,
 	   COUNT(transactions_id)
 FROM Retail_Sales
 GROUP BY gender, 
-		 category;
+	category;
 ```
 
 7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
 ```sql
 SELECT year,
-	   month , 
+       month , 
        average_sale
 FROM
 (SELECT EXTRACT(YEAR FROM sale_date) AS year,
@@ -175,7 +175,7 @@ WHERE rank= 1;
 8. **Write a SQL query to find the top 5 customers based on the highest total sales **:
 ```sql
 SELECT customer_id,
-	   SUM(total_sale) 
+       SUM(total_sale) 
 FROM Retail_Sales
 GROUP BY customer_id
 ORDER BY SUM(total_sale) DESC
@@ -185,7 +185,7 @@ LIMIT 5;
 9. **Write a SQL query to find the number of unique customers who purchased items from each category.**:
 ```sql
 SELECT category,
-	   COUNT(DISTINCT customer_id )
+       COUNT(DISTINCT customer_id )
 FROM Retail_Sales
 GROUP BY category;
 ```
@@ -202,7 +202,7 @@ WITH hourly_sales AS
 FROM Retail_Sales) 
 
 SELECT shift,
-	   COUNT(*)
+       COUNT(*)
 FROM hourly_sales
 GROUP BY shift;
 
